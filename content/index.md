@@ -5,5 +5,4 @@ draft: false
 
 # Who are we?
 
-[[Hey, Welcome]]
-[[Hello, World!]]
+A couple of people fresh into the industry with some opinions
