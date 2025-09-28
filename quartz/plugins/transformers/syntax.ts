@@ -16,7 +16,7 @@ const defaultOptions: Options = {
     light: "github-light",
     dark: "github-dark",
   },
-  keepBackground: true,
+  keepBackground: false,
 }
 
 export const SyntaxHighlighting: QuartzTransformerPlugin<Partial<Options>> = (userOpts) => {
