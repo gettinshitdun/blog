@@ -906,7 +906,7 @@ The structure contains all the information that the kernel has and needs about a
 > } __attribute__ ((aligned (64)));
 > ```
 
-```C
+```C title="testing"
 int main(){
 	pritnf("Hello, world!");
 }
