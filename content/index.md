@@ -10,5 +10,3 @@ Links to individual authors:\
 [[Kotia's Home]]
 
 ## Posts
-[[Hey, Welcome]]
-[[Hello, World!]]
