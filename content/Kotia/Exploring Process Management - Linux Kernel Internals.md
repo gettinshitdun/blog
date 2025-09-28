@@ -1,14 +1,12 @@
 ---
-
-title: Exploring Linux Kernels's Process Management
-
+title: Exploring Linux Kernel's Process Management
 ---
 
-These are all the notes while i am learning the linux kernel's internals specifically Process Management\
+These are all the notes while i am learning the linux kernel's internals specifically Process Management
 
-Currently I am learning these topics will update as i learn more\
+Currently I am learning these topics will update as i learn more
 
-My primary source is the Linux kernel development book\
+My primary source is the Linux kernel development book
 
 Currently this is the topic which i am learning
 
@@ -25,41 +23,23 @@ Currently this is the topic which i am learning
 # Process Definition
 
 A process is a program (a.out code)in the midst of execution\
-
 Process also includes a set of resources such as open files and pending signals,
-
 internal kernel data, processor state, a memory address space with one or more memory
-
 mappings, one or more threads of execution, and a data section containing global variables.\
-
 Processes, in effect, are the living result of running program code. The kernel needs to
-
 manage all these details efficiently and transparently\
-
 Threads of execution, often shortened to threads, are the objects of activity within the
-
 process.\
-
 Each thread includes a unique program counter, process stack, and set of proces-
-
 sor registers.\
-
 The kernel schedules individual threads, not processes. In traditional Unix systems, each process consists of one thread.\
-
 Linux has a unique implementation of threads: It does not differentiate between threads and processes.To Linux, a thread is just a special kind of process\
-
 note that threads share the virtual memory abstraction, whereas each
-
 receives its own virtualized processor.\
-
-A program itself is not a process; a process is an active program and related resources. Indeed, two or more processes can exist that are executing the same program. In fact, two or more processes can exist that share various resources, such as open files or an address space.\
-
+A program itself is not a process; a process is an active program and related resources. Indeed, two or more processes can exist that are executing the same program. In fact, two or more processes can exist that share various resources, such as open files or an address space.\ 
 The process that calls fork() is the parent, whereas the new process is the child. The parent resumes execution and the child starts execution at the same place: where the call to fork() returns.The fork() system call returns from the kernel twice: once in the parent process and again in the newborn child.\
-
 Often, immediately after a fork it is desirable to execute a new, different program.The exec() family of function calls creates a new address space and loads a new program into it. In contemporary Linux kernels, fork() is actually implemented via the clone() system call, which is discussed in a following section.\
-
 A parent process can inquire about the status of a terminated child via the wait4() system call, which enables a process to wait for the termination of a specific process.When a process exits, it is placed into a special zombie state that represents terminated processes until the parent calls wait() or waitpid().\
-
 ### Note-> Another name for a process is a task. The Linux kernel internally refers to processes as tasks.
 
   
@@ -71,13 +51,9 @@ Need to explore this
 # Process Descriptor and Task Structure
 
 The kernel stores the list of processes in a circular doubly linked list called the task list(some operating systems also call it as the task array)\
-
 Each element in the task list is a process descriptor of the type struct task_struct, which
-
 is defined in <linux/sched.h>.The process descriptor contains all the information about
-
 a specific process\
-
 The structure contains all the information that the kernel has and needs about a process.The process descriptor contains
 
 
@@ -925,9 +901,9 @@ The structure contains all the information that the kernel has and needs about a
 > 	/*
 > 	 * New fields for task_struct should be added above here, so that
 > 	 * they are included in the randomized portion of task_struct.
-> >	 */
-> >	randomized_struct_fields_end
-> >} __attribute__ ((aligned (64)));
+> 	 */
+> 	randomized_struct_fields_end
+> } __attribute__ ((aligned (64)));
 > ```
 
 Going into this behemoth of code isn't something that we should do, once the time comes we will go into that i guess
