@@ -906,4 +906,10 @@ The structure contains all the information that the kernel has and needs about a
 > } __attribute__ ((aligned (64)));
 > ```
 
+```C
+int main(){
+	pritnf("Hello, world!");
+}
+```
+
 Going into this behemoth of code isn't something that we should do, once the time comes we will go into that i guess
