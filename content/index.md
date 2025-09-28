@@ -1,5 +1,5 @@
 ---
-title: Home - Fish in the Sea
+title: Home
 draft: false
 ---
 
