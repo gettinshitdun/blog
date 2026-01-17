@@ -1,4 +1,4 @@
-I have always been fascinated by programming languages, and this has increased since the last year cause i have been following this book [[www.craftinginterpreters.com]] This book has been the source of all my compiler knowledge with practical, if you haven't checked it out, it's one of the best sources for creating your own language. \
+		I have always been fascinated by programming languages, and this has increased since the last year cause i have been following this book [[www.craftinginterpreters.com]] This book has been the source of all my compiler knowledge with practical, if you haven't checked it out, it's one of the best sources for creating your own language. \
 I have been working on a language with the help of the aforementioned book and now i would give my honest try to give some of the knowledge i gained back. 
 
 
@@ -34,15 +34,16 @@ So let's come back to our original question
 ### How does G++ handle lexing
 Let's now take a look at it's code 
 
-GOAL -> Check How G++ which is a part of GNU Compiler Collection handles the frontend of the C/C++ language
+### **GOAL -> Check How G++ which is a part of GNU Compiler Collection handles the frontend of the C/C++ language**
 
 Frontend means till GIMPLE we will first handle the lexer of the g++/GCC
 
-SUB GOAL -> How does lexing works in g++/GCC
+### **SUB GOAL -> How does lexing works in g++/GCC**
 
 For this to work we would need to first step though the gcc code itself, this is not available to the user as we download just the binary of gcc when we download it using linux getutils...
 
-GOAL -> Create a debugable gcc program which when run though our code we would be able to debug through gcc or something else
+#### GOAL -> Create a debugable gcc program which when run though our code we would be able to debug through gcc or something else
+
 https://gcc.gnu.org/onlinedocs/gcc/Debugging-Options.html
 https://gcc.gnu.org/wiki/DebuggingGCC
 https://www.youtube.com/watch?v=yEySjvC4lSI
@@ -147,3 +148,68 @@ Still don't know will this help me in understanding how is the function executin
 ```sh
 set print elements 0
 ```
+
+![[cc1.png]]
+
+Good progress today
+We got the whole method from which cc1 is being called, it was exactly as the ppt said but it was nice to see it 
+driver::main ->  do_spec_on_infiles -> do_spec -> do_spec_2 -> do_spec_1* <-> handle_braces* ---> execute -> pex_run -> pex_run_in_environment
+
+After this we got stuck on when the child process is forked it immediately exitsas being done, gdb does not get enough time to get into and give execution to it, it just immediately runs, hence when we got into child program we need to start it again hence it forgets all it's flags therefore gets stuck in stdin mode we recognized this with the help of gemini & the hint for linux/read.c file which i thought that when i press enter it would we written in stdin but no actually when we press ctrl+D then it gives the stdin / program that we have reached the EOF (end of file)
+so using this method it worked but not the way we wanted it to be i.e. from gcc
+
+So now we needed to figure out to debug the child process i.e. cc1
+
+Luckily gemini helped again it showed on how to put breakpoints in function and i followwed what i learnt previously that write the filename:function to put a breakpoint in a different program
+```sh
+set follow-fork-mode child
+break toplev::main
+```
+ now this triggerred gdb to say that
+ 
+ "no source file named /home/kotia/Development/G++/gcc/gcc/main.cc:"
+ Make breakpoint pending on future shared libraries y or n
+ 
+ I thought that it would breakpoint whenver a library loads, but no i think what it does is whenever the corresponding library loads for that file it would analyze the code and put breakpoint in that featured place, so good thing, of my god i love it
+ We would now explore how did cc1 parse and i belive it would be underwhelming, but let's see
+ Also realized how good of that slides are, will follow them more
+ www.airs.com/dnovillo/200711-GCC-Internals/
+
+### **GOAL -> See how does cc1 lexes the source code**
+lexes -> create a string into token
+
+toplev:main->do_compile->compile_file
+step langhooks.parse_file()
+c-opts.cc : c_common_parse_file 
+	c-parser.cc : c_parse_file
+		c_parser_translation_unit (the_parser);
+
+c-parser.cc :  c_lex_one_token
+c-lex.cc : c_lex_with_flags
+c-lex.cc : get_token
+macro.cc : cpp_get_token_with_location
+macro.cc : cpp_get_token_1
+lex.cc : _cpp_lex_token
+lex.cc : _cpp_lex_direct
+
+c = 32 (\space)-> skip_whitespace
+c = 95 (_)->  lex_identifier
+
+try reverse debugging in gdb
+https://gcc.gnu.org/onlinedocs/cppinternals/
+explore time travel debuggers
+Explore undo, rr, gbd reverse debugging, Mon, Wed, Fri
+Parallely explore the lexing through plain gdb Tue, Thurs, Sat
+
+ran 
+gcc -E hello.c 
+this returns the preprocessor output and this is quite large at the end our code is getting parsed, this honestly is a lot, i think we would need time travel debugger
+Also i believe we have reached the point we were looking for i.e. the file for the lexing of c code
+i.e. c-famile/c-lex.cc => need to confirm if this is the only file for this
+
+
+
+
+
+
+cpython -> https://devguide.python.org/internals/c

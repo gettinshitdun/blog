@@ -11,6 +11,7 @@ I am treating these posts as more of my devlogs, rather than the definitive way 
 # Posts
 ## In Progress
 [[Compiler Design]]
+[[Why do we write code?]]
 
 
 ## Abandoned
