@@ -1330,7 +1330,7 @@ return result;
 
 }
 ```
-
+Now that lexing is done how does this lexer converts it into a tree
 
 
 cpython -> https://devguide.python.org/internals/c
