@@ -1,0 +1,2 @@
+1. Welcome
+	Scratch the surface with the kernel and how does this interaction with IO happens, because every software that we create goes through this thing called the operating system So let's start with understanding the OS itself.
