@@ -18,5 +18,14 @@ I am treating these posts as more of my devlogs, rather than the definitive way 
 3. AOSP build process
 4. Exploring G++, GCC, Cpython (language internals)
 5. Compiler design
+6. How does DLSS Work
+7. How does text to speech work
+8. RAM Architecture
+9. Redis internals
+10. Programming paradigms
+11. What do you mean by a monolithic kernel
+12. Why do we need AP to do everything 
+13. How does malloc work
+14. The journey of various programming languages
 
 
