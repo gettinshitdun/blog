@@ -11,7 +11,6 @@ I am treating these posts as more of my devlogs, rather than the definitive way 
 # Posts
 
 [[Why do we write code?]]
-[[AOSP Build Process]]
 
 ## Interesting ideas
 1. Why do we write code
