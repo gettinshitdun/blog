@@ -11,6 +11,7 @@ I am treating these posts as more of my devlogs, rather than the definitive way 
 # Posts
 
 [[Why do we write code?]]
+[[Crafting Interpreters the big picture for me]]
 
 ## Interesting ideas
 1. Why do we write code
