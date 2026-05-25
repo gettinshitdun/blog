@@ -14,7 +14,7 @@ I am treating these posts as more of my devlogs, rather than the definitive way 
 
 ## Interesting ideas
 1. Why do we write code
-2. What happens (hardware + software wise) when you press the power button on the computer 
+2. What happens (hardware + software wise) when you press the power button on the computer complete boot process
 3. AOSP build process
 4. Exploring G++, GCC, Cpython (language internals)
 5. Compiler design
@@ -27,5 +27,6 @@ I am treating these posts as more of my devlogs, rather than the definitive way 
 12. Why do we need AP to do everything 
 13. How does malloc work
 14. The journey of various programming languages
+15. Crafting Interpreters the big picture for me
 
 
