@@ -10,13 +10,11 @@ I am treating these posts as more of my devlogs, rather than the definitive way 
 
 # Posts
 
-[[Why do we write code?]]
-[[Crafting Interpreters the big picture for me]]
+[[Why do we write code?]]\
+[[Crafting Interpreters the big picture for me]]\
 [[Boot Flow]]
 
-
-
-## Mission Curiosity
+# Mission Curiosity
 1. Why do we write code
 2. What happens (hardware + software wise) when you press the power button on the computer complete boot process
 3. AOSP build process
