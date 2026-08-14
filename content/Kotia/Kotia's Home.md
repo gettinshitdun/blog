@@ -12,8 +12,12 @@ I am treating these posts as more of my devlogs, rather than the definitive way 
 
 [[Why do we write code?]]
 [[Crafting Interpreters the big picture for me]]
+[[ESP32 - DevLog]]
+[[Boot Flow]]
 
-## Interesting ideas
+
+
+## Mission Curiosity
 1. Why do we write code
 2. What happens (hardware + software wise) when you press the power button on the computer complete boot process
 3. AOSP build process
@@ -29,5 +33,9 @@ I am treating these posts as more of my devlogs, rather than the definitive way 
 13. How does malloc work
 14. The journey of various programming languages
 15. Crafting Interpreters the big picture for me
+16. How does bluetooth work
+17. How does HDMI Protocol & cables work
+18. How does a charger work
+19. {Non-tech} How does rupee came to be, why's rupee named rupee
 
 
