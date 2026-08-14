@@ -12,7 +12,6 @@ I am treating these posts as more of my devlogs, rather than the definitive way 
 
 [[Why do we write code?]]
 [[Crafting Interpreters the big picture for me]]
-[[ESP32 - DevLog]]
 [[Boot Flow]]
 
 
